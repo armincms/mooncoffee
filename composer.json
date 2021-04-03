@@ -1,0 +1,30 @@
+{
+    "name": "armincms/mooncoffee",
+    "description": "A Laravel Nova tool.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "armincms/blogger": "*",
+        "armincms/store": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Armincms\\Mooncoffee\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [ 
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
