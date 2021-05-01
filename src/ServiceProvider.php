@@ -1,9 +1,9 @@
 <?php
 
-namespace Armincms\Store;
- 
+namespace Armincms\Mooncoffee;
+
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider; 
-use Laravel\Nova\Nova as LaravelNova; 
 
 class ServiceProvider extends LaravelServiceProvider implements DeferrableProvider
 { 
@@ -14,11 +14,12 @@ class ServiceProvider extends LaravelServiceProvider implements DeferrableProvid
      * @return void
      */
     public function register()
-    {
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-
-        LaravelNova::resources([
-        ]);
+    { 
+        $this->app->booted(function() { 
+            app('site')->get('store')->component('product')->config([
+                'layout' => 'clarity'
+            ]);
+        });
     }
 
     /**
@@ -39,7 +40,7 @@ class ServiceProvider extends LaravelServiceProvider implements DeferrableProvid
     public function when()
     {
         return [
-            \Laravel\Nova\Events\ServingNova::class,
+            \Core\HttpSite\Events\ServingFront::class,
             \Illuminate\Console\Events\ArtisanStarting::class,
         ];
     }
