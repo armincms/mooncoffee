@@ -19,6 +19,25 @@ class ServiceProvider extends LaravelServiceProvider implements DeferrableProvid
             app('site')->get('store')->component('product')->config([
                 'layout' => 'clarity'
             ]);
+            app('site')->get('store')->component('cart')->config([
+                'layout' => 'akuatik'
+            ]);
+        });
+
+        $this->app->afterResolving('conversion', function($manager) {
+            $product = $manager->driver('product');
+            $product->merge('thumbnail', [
+                'width' => 350,
+                'height' => 350,
+            ]);
+            $product->merge('mid', [
+                'width' => 500,
+                'height' => 500,
+            ]);
+            $product->merge('larg', [
+                'width' => 633,
+                'height' => 633,
+            ]);
         });
     }
 
