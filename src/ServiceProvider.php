@@ -22,6 +22,9 @@ class ServiceProvider extends LaravelServiceProvider implements DeferrableProvid
             app('site')->get('store')->component('cart')->config([
                 'layout' => 'akuatik'
             ]);
+            app('site')->get('store')->component('shipping')->config([
+                'layout' => 'audacity'
+            ]);
         });
 
         $this->app->afterResolving('conversion', function($manager) {
