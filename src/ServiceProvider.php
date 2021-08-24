@@ -16,15 +16,23 @@ class ServiceProvider extends LaravelServiceProvider implements DeferrableProvid
     public function register()
     { 
         $this->app->booted(function() { 
-            app('site')->get('store')->component('product')->config([
-                'layout' => 'clarity'
-            ]);
-            app('site')->get('store')->component('cart')->config([
-                'layout' => 'akuatik'
-            ]);
-            app('site')->get('store')->component('shipping')->config([
-                'layout' => 'audacity'
-            ]);
+            tap(app('site')->get('store'), function($store) {
+                $store->component('product')->config([
+                    'layout' => 'clarity'
+                ]);
+                $store->component('cart')->config([
+                    'layout' => 'akuatik'
+                ]);
+                $store->component('shipping')->config([
+                    'layout' => 'audacity'
+                ]); 
+                $store->component('dashboard')->config([
+                    'layout' => 'myriad'
+                ]);
+                $store->component('login')->config([
+                    'layout' => 'myriad-login'
+                ]);
+            });  
         });
 
         $this->app->afterResolving('conversion', function($manager) {
