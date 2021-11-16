@@ -32,6 +32,9 @@ class ServiceProvider extends LaravelServiceProvider implements DeferrableProvid
                 $store->component('login')->config([
                     'layout' => 'myriad-login'
                 ]);
+                $store->component('register')->config([
+                    'layout' => 'myriad-login'
+                ]);
             });  
         });
 
