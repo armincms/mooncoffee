@@ -10,7 +10,8 @@
         "php": ">=7.1.0",
         "armincms/blogger": "^1.0",
         "armincms/store": "*",
-        "armincms/payir": "*"
+        "armincms/payir": "*",
+        "armincms/nextpay": "*"
     },
     "autoload": {
         "psr-4": {
