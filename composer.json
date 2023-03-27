@@ -11,7 +11,8 @@
         "armincms/blogger": "^1.0",
         "armincms/store": "*",
         "armincms/payir": "*",
-        "armincms/nextpay": "*"
+        "armincms/nextpay": "*",
+        "armincms/qasedak": "*"
     },
     "autoload": {
         "psr-4": {
