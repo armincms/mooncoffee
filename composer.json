@@ -12,7 +12,7 @@
         "armincms/store": "*",
         "armincms/payir": "*",
         "armincms/nextpay": "*", 
-        "armincms/arminsms-shared": "*"
+        "armincms/arminsms": "*"
     },
     "autoload": {
         "psr-4": {
